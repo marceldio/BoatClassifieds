@@ -1,0 +1,42 @@
+{% extends 'boat/base.html' %}
+
+{% block content %}
+<div class="card mb-4 text-center">
+    <div class="card-header">{{ object.name }}</div>
+    <div class="card-body">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Начало</th>
+                <th>Окончание</th>
+                <th>Владелец</th>
+            </tr>
+
+            {% for history_item in object.boathistory_set.all %}
+            <tr>
+                <td>
+                    {{ history_item.start_year }}
+                </td>
+                <td>
+                    {% if history_item.stop_year %}
+                    {{ history_item.stop_year }}
+                    {% else %}
+                    по настоящее время
+                    {% endif %}
+                </td>
+                <td>
+                    {% if history_item.owner %}
+                    {{ history_item.owner }}
+                    {% else %}
+                    Не указано
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'order:create' object.pk %}" type="button" class="w-100 btn btn-outline-success">Оставить
+            заявку</a>
+    </div>
+</div>
+{% endblock %}
