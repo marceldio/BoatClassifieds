@@ -8,8 +8,7 @@
             {% csrf_token %}
             <input type="hidden" name="boat_id" value="{{ boat.pk }}">
             {{ form.as_p }}
-            <a href="{% url 'boat:boat_list' %}" type="button" class="w-100 btn btn-success">Оставить
-                заявку</a>
+            <button type="submit" class="w-100 btn btn-success">Оставить заявку</button>
         </form>
     </div>
     <div class="card-footer">
