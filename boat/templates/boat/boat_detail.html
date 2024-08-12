@@ -34,8 +34,9 @@
             {% endfor %}
         </table>
     </div>
+
     <div class="card-footer">
-        <a href="{% url 'order:create' object.pk %}" type="button"
+        <a href="{% url 'order:order' object.pk %}" type="button"
            class="w-100 btn btn-outline-success">Оставить заявку</a>
     </div>
 </div>

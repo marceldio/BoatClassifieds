@@ -6,7 +6,7 @@
     <div class="card-body">
         <form method="post">
             {% csrf_token %}
-            <input type="hidden" name="boat_id" value="{{ boat.pk }}">
+            <input type="hidden" name="boat" value="{{ boat.pk }}">
             {{ form.as_p }}
             <button type="submit" class="w-100 btn btn-success">Оставить заявку</button>
         </form>
