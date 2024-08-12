@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from boat.forms import BoatForm
 from boat.models import Boat
@@ -14,11 +14,23 @@ class BoatCreateView(CreateView):
 
 class BoatUpdateView(UpdateView):
     model = Boat
-    fields = ('name', 'year', 'description', 'image', 'price', 'owner')
+    form_class = BoatForm
     success_url = reverse_lazy('boat:boat_list')
 
     def get_success_url(self):
-        return reverse('boat:boat_detail', kwargs={'pk': self.object.pk})
+        # return reverse('boat:boat_detail', kwargs={'pk': self.object.pk})
+        return reverse('boat:boat_list', args=[self.kwargs.get('pk')])
+
+
+class BoatDeleteView(DeleteView):
+    model = Boat
+    success_url = reverse_lazy('boat:boat_list')
+    template_name = 'boat/boat_delete.html'
+
+    def get_success_url(self):
+        return reverse('boat:boat_list')
+
+
 
 class BoatListView(ListView):
     model = Boat
