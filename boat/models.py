@@ -33,6 +33,8 @@ class Boat(models.Model):
 
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, verbose_name='владелец')
 
+    views_counter = models.PositiveIntegerField(default=0, verbose_name='просмотры')
+
 
     def __str__(self):
         return f'{self.name}'
