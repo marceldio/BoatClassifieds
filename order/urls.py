@@ -6,5 +6,5 @@ from order.views import OrderCreateView
 app_name = OrderConfig.name
 
 urlpatterns = [
-    path('create/<int:pk>/', OrderCreateView.as_view(), name='create'),
+    path('order/<int:pk>/', OrderCreateView.as_view(), name='order'),
     ]

@@ -1,26 +1,35 @@
 {% extends 'boat/base.html' %}
-
 {% block content %}
-    {% for object in object_list %}
+{% load my_tags %}
+
+
+<div class="container">
+    <div class="col-12 mb-5">
+        <a class="btn btn-primary" href="{% url 'boat:boat_create' %}">Добавить обьявление</a>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2">
+        {% for object in object_list %}
         <div class="col">
             <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">{{ object.name }}</h4>
                 </div>
                 <div class="card-body">
+                    <h5 class="my-0 fw-normal">{{ object.year }}</h5>
                     {% if object.price %}
-                        <h3 class="card-title pricing-card-title">{{ object.price }}</h3>
+                    <h3 class="card-title pricing-card-title">{{ object.price }}</h3>
                     {% else %}
-                        <h3 class="card-title pricing-card-title">
-                            <small class="text-muted">
-                                не указана
-                            </small>
-                        </h3>
+                    <h3 class="card-title pricing-card-title">
+                        <small class="text-muted">
+                            не указана
+                        </small>
+                    </h3>
                     {% endif %}
-                    <a href="{% url 'boat:boat_view' object.pk %}" type="button" class="w-100 btn btn-lg btn-outline-primary">
+                    <a href="{% url 'boat:boat_view' object.pk %}" type="button"
+                       class="w-100 btn btn-lg btn-outline-primary">
                         Информация</a>
                 </div>
             </div>
         </div>
-    {% endfor %}
-{% endblock %}
+        {% endfor %}
+        {% endblock %}
