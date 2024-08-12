@@ -12,7 +12,7 @@ class OfferCreateView(BoatUpdateView):
     model = Boat
     fields = ('name', 'year', 'description', 'image', 'price', 'owner')
     success_url = reverse_lazy('boat:boat_list')
-    template_name = 'boat/boat_create.html'
+    template_name = 'boat/boat_form.html'
 
     def get_success_url(self):
         return reverse('boat:boat_detail', kwargs={'pk': self.object.pk})

@@ -1,4 +1,5 @@
 {% extends 'boat/base.html' %}
+
 {% block content %}
 {% load my_tags %}
 
@@ -17,7 +18,7 @@
                 <div class="card-body">
                     <h5 class="my-0 fw-normal">{{ object.year }}</h5>
                     {% if object.price %}
-                    <h3 class="card-title pricing-card-title">{{ object.price }}</h3>
+                    <h4 class="card-title pricing-card-title">{{ object.price }}</h4>
                     {% else %}
                     <h3 class="card-title pricing-card-title">
                         <small class="text-muted">
@@ -25,11 +26,18 @@
                         </small>
                     </h3>
                     {% endif %}
-                    <a href="{% url 'boat:boat_view' object.pk %}" type="button"
-                       class="w-100 btn btn-lg btn-outline-primary">
-                        Информация</a>
+                    <div class="btn btn-group">
+                        <a href="{% url 'boat:boat_view' object.pk %}" type="button"
+                           class="btn btn-primary"><h6>Смотреть</h6></a>
+                        <a href="{% url 'boat:boat_update' object.pk %}" type="button"
+                           class="btn btn-outline-warning"><h6>Редактировать</h6></a>
+                        <a href="{% url 'boat:boat_delete' object.pk %}" type="button"
+                           class="btn btn-outline-danger"><h6>Удалить</h6></a>
+                    </div>
                 </div>
             </div>
         </div>
         {% endfor %}
-        {% endblock %}
+    </div>
+</div>
+{% endblock %}

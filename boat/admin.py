@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from boat.models import Owner, Boat, BoatHistory
+from boat.models import Owner, Boat, BoatHistory, Version
 
 
 @admin.register(Owner)
@@ -20,3 +20,9 @@ class BoatHistory(admin.ModelAdmin):
     list_display = ('boat', 'start_year', 'stop_year', 'owner',)
     list_filter = ('owner', 'boat',)
 
+
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'boat')
+    list_filter = ('boat',)
+    search_fields = ('boat', 'version')

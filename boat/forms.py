@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from boat.models import Boat, Owner
+from boat.models import Boat, Owner, Version
 
 
 class StyleForMixin:
@@ -36,4 +36,9 @@ class BoatForm(ModelForm):
 class OwnerForm(StyleForMixin, forms.ModelForm):
     class Meta:
         model = Owner
+        exclude = ('created_at',)
+
+class VersionForm(forms.ModelForm):
+    class Meta:
+        model = Version
         fields = '__all__'
