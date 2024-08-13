@@ -36,8 +36,11 @@
     </div>
 
     <div class="card-footer">
-        <a href="{% url 'order:order' object.pk %}" type="button"
-           class="w-100 btn btn-outline-success">Оставить заявку</a>
+        <div class="btn btn-group">
+            <a href="{% url 'order:order' object.pk %}" type="button"
+               class="w-100 btn btn-outline-success">Оставить заявку</a>
+            <a href="{% url 'boat:boat_list' %}" class="btn btn-outline-secondary">Назад</a>
+        </div>
     </div>
 </div>
 {% endblock %}

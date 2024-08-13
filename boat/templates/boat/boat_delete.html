@@ -1,5 +1,4 @@
 {% extends 'boat/base.html' %}
-
 {% block content %}
 <div class="container">
     <div class="col-12">
@@ -9,15 +8,10 @@
                     <div class="card">
                         <div class="card-body">
                             {% csrf_token %}
-                            {{ form.as_p }}
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            {% if object %}
-                            Сохранить
-                            {% else %}
-                            Создать
-                            {% endif %}
-                        </button>
+                        <p class="card-text">Удалить это объявление? {{ object.name }}</p>
+                        <button type="submit" class="btn btn-outline-danger">Подтвердить</button>
+                        <a class="btn btn-outline-primary" href="{% url 'boat:boat_list' %}" role="button">Отменить</a>
                     </div>
                 </form>
             </div>
@@ -25,4 +19,3 @@
     </div>
 </div>
 {% endblock %}
-
