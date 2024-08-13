@@ -54,6 +54,15 @@ class BoatDeleteView(DeleteView):
 class BoatListView(ListView):
     model = Boat
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        boats = self.get_queryset()
+        for boat in boats:
+            boat.version = boat.version_set.filter(is_current=True).first()
+
+        context_data['object_list'] = boats
+        return context_data
+
 
 class BoatDetailView(DetailView):
     model = Boat

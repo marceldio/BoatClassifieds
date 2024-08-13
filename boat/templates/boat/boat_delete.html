@@ -10,8 +10,8 @@
                             {% csrf_token %}
                         </div>
                         <p class="card-text">Удалить это объявление? {{ object.name }}</p>
-                        <button type="submit" class="btn btn-danger">Подтвердить</button>
-                        <a class="btn btn-primary" href="{% url 'boat:boat_list' %}" role="button">Отменить</a>
+                        <button type="submit" class="btn btn-outline-danger">Подтвердить</button>
+                        <a class="btn btn-outline-primary" href="{% url 'boat:boat_list' %}" role="button">Отменить</a>
                     </div>
                 </form>
             </div>

@@ -60,7 +60,8 @@ class BoatHistory(models.Model):
 
 class Version(models.Model):
     title = models.CharField(max_length=150, verbose_name='название')
-    description = models.TextField(verbose_name='описание')
+    number = models.PositiveIntegerField(verbose_name='номер версии')
+    is_current = models.BooleanField(default=False, verbose_name='активная')
 
     boat = models.ForeignKey(Boat, on_delete=models.CASCADE, verbose_name='лодка')
 
