@@ -1,0 +1,234 @@
+[
+  {
+    "model": "boat.owner",
+    "pk": 1,
+    "fields": {
+      "name": "M D",
+      "email": "marceldiomare@yandex.ru",
+      "created_at": "2024-08-12T18:59:12.898Z"
+    }
+  },
+  {
+    "model": "boat.owner",
+    "pk": 2,
+    "fields": {
+      "name": "Hans",
+      "email": "hans_hristinian@gmail.com",
+      "created_at": "2024-08-12T18:59:12.898Z"
+    }
+  },
+  {
+    "model": "boat.owner",
+    "pk": 3,
+    "fields": {
+      "name": "Marcel",
+      "email": "marceldio@mail.ru",
+      "created_at": "2024-08-12T18:59:12.898Z"
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 1,
+    "fields": {
+      "name": "Победа",
+      "year": 1990,
+      "description": "dfghjkml;,.bnv nm,",
+      "image": "",
+      "price": 12000,
+      "owner": 1,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 5,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 3,
+    "fields": {
+      "name": "Zigzag",
+      "year": 1998,
+      "description": "Bavaria 45",
+      "image": "",
+      "price": 50000,
+      "owner": 2,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 3,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 4,
+    "fields": {
+      "name": "Samba",
+      "year": 2013,
+      "description": "Bavaria 46",
+      "image": "",
+      "price": 60000,
+      "owner": 2,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 3,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 5,
+    "fields": {
+      "name": "Daddy",
+      "year": 2018,
+      "description": "Custom Cat",
+      "image": "",
+      "price": 60000,
+      "owner": 2,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 2,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 7,
+    "fields": {
+      "name": "Veter",
+      "year": 2020,
+      "description": "engine + sail",
+      "image": "",
+      "price": 80,
+      "owner": 3,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 2,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 9,
+    "fields": {
+      "name": "Триумф",
+      "year": 2010,
+      "description": "Dufor 45",
+      "image": "",
+      "price": 60000,
+      "owner": 2,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 2,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 10,
+    "fields": {
+      "name": "Фиеста",
+      "year": 2000,
+      "description": "Стальной кетч 42 фута",
+      "image": "",
+      "price": 40000,
+      "owner": 1,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 1,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 11,
+    "fields": {
+      "name": "Пионер",
+      "year": 1985,
+      "description": "Лодка самостоятельной постройки 25 футов.",
+      "image": "",
+      "price": 20000,
+      "owner": 3,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 1,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 12,
+    "fields": {
+      "name": "бриз",
+      "year": 2014,
+      "description": "Bavaria 38",
+      "image": "",
+      "price": 50000,
+      "owner": 1,
+      "created_at": "2024-08-12T18:59:12.887Z",
+      "views_counter": 6,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 13,
+    "fields": {
+      "name": "Voyager",
+      "year": 2020,
+      "description": "Kater",
+      "image": "",
+      "price": 10000,
+      "owner": 3,
+      "created_at": "2024-08-12T19:11:44.240Z",
+      "views_counter": 1,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boat",
+    "pk": 16,
+    "fields": {
+      "name": "Salsa",
+      "year": 2015,
+      "description": "fghjkl",
+      "image": "",
+      "price": 5000,
+      "owner": 2,
+      "created_at": "2024-08-12T19:27:45.821Z",
+      "views_counter": 15,
+      "is_published": true
+    }
+  },
+  {
+    "model": "boat.boathistory",
+    "pk": 1,
+    "fields": {
+      "boat": 1,
+      "owner": 1,
+      "start_year": 2024,
+      "stop_year": null
+    }
+  },
+  {
+    "model": "boat.boathistory",
+    "pk": 4,
+    "fields": {
+      "boat": 3,
+      "owner": 1,
+      "start_year": 2024,
+      "stop_year": null
+    }
+  },
+  {
+    "model": "boat.boathistory",
+    "pk": 5,
+    "fields": {
+      "boat": 3,
+      "owner": 3,
+      "start_year": 2023,
+      "stop_year": 2024
+    }
+  },
+  {
+    "model": "boat.version",
+    "pk": 1,
+    "fields": {
+      "title": "001",
+      "number": 1,
+      "is_current": true,
+      "boat": 16
+    }
+  }
+]

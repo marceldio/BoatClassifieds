@@ -1,0 +1,27 @@
+{% extends 'boat/base.html' %}
+
+{% block content %}
+<div class="col-12">
+    <form class="row" method="post" enctype="multipart/form-data">
+        <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">
+                            Профиль</h5>
+                        <div class="card-body">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-success">Сохранить</button>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'boat:boat_list' %}" class="w-100 btn btn-outline-secondary">Назад</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </form>
+</div>
+{% endblock %}
+
