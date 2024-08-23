@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
@@ -5,6 +6,15 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from boat.forms import BoatForm, VersionForm
 from boat.models import Boat, Version
+
+def contact(request):
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        print(f'You have new message from {name}({email}): {message}')
+    return render(request, 'boat/contact.html')
 
 
 class BoatCreateView(CreateView):
@@ -72,6 +82,3 @@ class BoatDetailView(DetailView):
         self.object.views_counter += 1
         self.object.save()
         return self.object
-
-
-

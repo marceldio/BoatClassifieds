@@ -6,7 +6,11 @@
 
 <div class="container">
     <div class="col-12 mb-5">
-        <a class="btn btn-primary" href="{% url 'boat:boat_create' %}">Добавить обьявление</a>
+        {% if user.is_authenticated %}
+        <p>
+            <a class="btn btn-primary" href="{% url 'boat:boat_create' %}">Добавить обьявление</a>
+        </p>
+        {% endif %}
     </div>
     <div class="row row-cols-1 row-cols-sm-2">
         {% for object in object_list %}
@@ -30,10 +34,13 @@
                     <div class="btn btn-group">
                         <a href="{% url 'boat:boat_view' object.pk %}" type="button"
                            class="btn btn-primary"><h6>Смотреть</h6></a>
+
+                        {% if perms.boat.change_boat and perms.boat.delete_boat %}
                         <a href="{% url 'boat:boat_update' object.pk %}" type="button"
-                           class="btn btn-outline-warning"><h6>Редактировать</h6></a>
+                           class="btn btn-warning"><h6>Редактировать</h6></a>
                         <a href="{% url 'boat:boat_delete' object.pk %}" type="button"
-                           class="btn btn-outline-danger"><h6>Удалить</h6></a>
+                           class="btn btn-danger"><h6>Удалить</h6></a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -3,14 +3,14 @@ from django.forms import ModelForm
 from boat.models import Boat, Owner, Version
 
 
-class StyleForMixin:
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+# class StyleForMixin:
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         for field_name, field in self.fields.items():
+#             field.widget.attrs['class'] = 'form-control'
 
 
-class BoatForm(ModelForm):
+class BoatForm(forms.ModelForm):
     class Meta:
         model = Boat
         exclude = ('views_counter',)
@@ -33,7 +33,7 @@ class BoatForm(ModelForm):
         return description
 
 
-class OwnerForm(StyleForMixin, forms.ModelForm):
+class OwnerForm(forms.ModelForm):
     class Meta:
         model = Owner
         exclude = ('created_at',)
