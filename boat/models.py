@@ -22,7 +22,7 @@ class Boat(models.Model):
     year = models.PositiveIntegerField(**NULLABLE, verbose_name='год выпуска')
     description = models.TextField(**NULLABLE, verbose_name="Описание")
     image = models.ImageField(**NULLABLE,
-        upload_to="boat/photo", verbose_name="Изображение")
+        upload_to="boat/image", verbose_name="Изображение")
 
     price = models.IntegerField(**NULLABLE, verbose_name='цена', default=None)
 
@@ -41,6 +41,11 @@ class Boat(models.Model):
     class Meta:
         verbose_name = 'лодка'
         verbose_name_plural = 'лодки'
+        ordering = ["-created_at"]
+        permissions = [
+            ("can_edit_description", "Can edit description"),
+            ("can_edit_is_published", "Can edit is_published")
+        ]
 
 
 class BoatHistory(models.Model):

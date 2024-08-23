@@ -10,10 +10,16 @@ from boat.models import Boat, Owner, Version
 #             field.widget.attrs['class'] = 'form-control'
 
 
+class BoatModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Boat
+        fields = ('description', 'is_published')
+
+
 class BoatForm(forms.ModelForm):
     class Meta:
         model = Boat
-        exclude = ('views_counter',)
+        exclude = ('views_counter', 'owner', 'is_published')
 
     # Список запрещенных слов
     forbidden_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно',

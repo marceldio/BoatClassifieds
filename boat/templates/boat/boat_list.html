@@ -1,9 +1,6 @@
 {% extends 'boat/base.html' %}
-
-{% block content %}
 {% load my_tags %}
-
-
+{% block content %}
 <div class="container">
     <div class="col-12 mb-5">
         {% if user.is_authenticated %}
@@ -19,6 +16,7 @@
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">{{ object.name }}</h4>
                 </div>
+                <img src="{{ object.image | media_filter }}">
                 <div class="card-body">
                     <h5 class="my-0 fw-normal">{{ object.year }}</h5>
                     <h5 class="my-0 fw-normal">версия: {{ object.version }}</h5>
@@ -35,12 +33,13 @@
                         <a href="{% url 'boat:boat_view' object.pk %}" type="button"
                            class="btn btn-primary"><h6>Смотреть</h6></a>
 
-                        {% if perms.boat.change_boat and perms.boat.delete_boat %}
+
                         <a href="{% url 'boat:boat_update' object.pk %}" type="button"
                            class="btn btn-warning"><h6>Редактировать</h6></a>
+
                         <a href="{% url 'boat:boat_delete' object.pk %}" type="button"
                            class="btn btn-danger"><h6>Удалить</h6></a>
-                        {% endif %}
+
                     </div>
                 </div>
             </div>
