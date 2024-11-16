@@ -19,7 +19,7 @@ class BoatModeratorForm(forms.ModelForm):
 class BoatForm(forms.ModelForm):
     class Meta:
         model = Boat
-        exclude = ('views_counter', 'owner', 'is_published')
+        exclude = ('views_counter', 'is_published', 'owner')
 
     # Список запрещенных слов
     forbidden_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно',
@@ -42,7 +42,7 @@ class BoatForm(forms.ModelForm):
 class OwnerForm(forms.ModelForm):
     class Meta:
         model = Owner
-        exclude = ('created_at',)
+        fields = '__all__'
 
 class VersionForm(forms.ModelForm):
     class Meta:

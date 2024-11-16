@@ -1,5 +1,6 @@
 from django.db import models
 
+from users.models import User
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -7,8 +8,10 @@ NULLABLE = {'blank': True, 'null': True}
 class Owner(models.Model):
     name = models.CharField(max_length=150, verbose_name='имя')
     email = models.EmailField(verbose_name='электронная почта', unique=True)
-    created_at = models.DateTimeField(**NULLABLE, auto_now_add=True)
 
+    created_at = models.DateTimeField(**NULLABLE, auto_now_add=True)
+    # user = models.OneToOneField(User, default='some@example.com', on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return f'{self.email} ({self.name})'
 
