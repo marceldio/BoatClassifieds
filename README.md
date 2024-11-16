@@ -1,5 +1,5 @@
 Boat Sales Notice Board by Marcel dio
-# boat classifieds
+# Boat Classifieds
 Проект по продаже лодок (барахолка)
 
 Проект призван помочь владельцам лодок продать свои лодки другим любителям водного транспорта.
